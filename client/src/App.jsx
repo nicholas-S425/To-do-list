@@ -1,24 +1,42 @@
-import { useEffect, useState } from 'react'
-import axios from 'axios' // Make sure you've run: npm install axios
+import { removeItem } from 'framer-motion';
+import { useState } from 'react';
+
 
 function App() {
-  const [greeting, setGreeting] = useState("Loading...")
-
-  useEffect(() => {
-    axios.get('http://localhost:5000/api/hello')
-      .then(res => setGreeting(res.data.message))
-      .catch(err => {
-        console.error("Error fetching data:", err);
-        setGreeting("Server is not responding 😢");
-      })
-  }, [])
-
-  return (
-    <div style={{ textAlign: 'center', marginTop: '50px' }}>
-      <h1>MERN Stack Test</h1>
-      <p>Message from Backend: <strong>{greeting}</strong></p>
-    </div>
-  )
+ const [text, setText] = useState("");
+ const [list, setList] = useState([]);
+ 
+ const handleAdd = () => {
+   setList([...list,text]);
+ };
+   const handleDelete = () => {
+    setItems(items.filter(item => item.id !== id));
+ };
+return (
+ <>
+   <h1>list tihngy</h1>
+   <div style={{padding:'20px'}}>
+     <input
+       type="text"
+       onChange={(e) => setText(e.target.value)}
+       placeholder="Type something..."
+     />
+     <button onClick={handleAdd}>
+       Add
+     </button>
+       {list.map((item) => (
+       <>
+       <li>{item}</li>
+         <button onClick={handleDelete}>
+         Delete
+         </button>
+       </>
+       ))}
+   </div>
+ </>
+);
 }
 
-export default App
+
+export default App;
+
