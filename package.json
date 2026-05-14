@@ -3,12 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-"scripts": {
- "server": "cd server && node index.js",
- "client": "cd client && npm run dev",
- "dev": "concurrently \"npm run server\" \"npm run client\""
-},
-
+  "scripts": {
+    "server": "cd server && node index.js",
+    "client": "cd client && npm run dev",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nicholas-S425/To-do-list.git"
@@ -23,5 +22,9 @@
   "homepage": "https://github.com/nicholas-S425/To-do-list#readme",
   "devDependencies": {
     "concurrently": "^9.2.1"
+  },
+  "dependencies": {
+    "homebrew": "^0.1.0",
+    "numpy": "^0.0.1"
   }
 }
